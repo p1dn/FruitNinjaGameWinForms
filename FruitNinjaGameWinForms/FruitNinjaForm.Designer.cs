@@ -28,18 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            scoreLabel = new Label();
             SuspendLayout();
             // 
-            // Form1
+            // scoreLabel
+            // 
+            scoreLabel.AutoSize = true;
+            scoreLabel.Font = new Font("Segoe UI Black", 36F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            scoreLabel.ForeColor = Color.Gold;
+            scoreLabel.Location = new Point(12, 9);
+            scoreLabel.Name = "scoreLabel";
+            scoreLabel.Size = new Size(57, 65);
+            scoreLabel.TabIndex = 0;
+            scoreLabel.Text = "0";
+            // 
+            // FruitNinjaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Sienna;
             ClientSize = new Size(1934, 1018);
-            Name = "Form1";
-            Text = "Form1";
+            Controls.Add(scoreLabel);
+            Name = "FruitNinjaForm";
+            Text = "FruitNinja";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label scoreLabel;
     }
 }
