@@ -1,6 +1,6 @@
 ﻿namespace FruitNinjaGameWinForms
 {
-    partial class Form1
+    partial class FruitNinjaForm
     {
         /// <summary>
         ///  Required designer variable.
