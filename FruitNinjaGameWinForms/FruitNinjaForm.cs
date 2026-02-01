@@ -3,7 +3,8 @@ namespace FruitNinjaGameWinForms
     public partial class FruitNinjaForm : Form
     {
         public static Random rnd { get; } = new Random();
-        public List<Fruit> fruits = new List<Fruit>();
+        private List<Fruit> fruits = new List<Fruit>();
+        private int score = 0;
 
         public FruitNinjaForm()
         {
@@ -52,6 +53,21 @@ namespace FruitNinjaGameWinForms
                     pineapple.movement.StartMoving();
                     fruits.Add(pineapple);
                     break;
+            }
+        }
+
+        private void FruitNinjaForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            foreach (var fruit in fruits)
+            {
+                if (fruit.movement.IsCursorInBall(e))
+                {
+                    fruit.movement.HideFruit();
+                    score += fruit.point;
+                    scoreLabel.Text = score.ToString();
+                    fruits.Remove(fruit);
+                    return;
+                }
             }
         }
     }

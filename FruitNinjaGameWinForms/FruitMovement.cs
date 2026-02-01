@@ -35,7 +35,7 @@ namespace FruitNinjaGameWinForms
 
         public void StartMoving() => timer.Start();
 
-        private void HideLastFruit()
+        public void HideLastFruit()
         {
             var brush = new SolidBrush(form.BackColor);
             Draw(brush);
@@ -63,6 +63,25 @@ namespace FruitNinjaGameWinForms
             var rectangle = new RectangleF(fruit.centerX - fruit.radius, fruit.centerY - fruit.radius, 2 * fruit.radius, 2 * fruit.radius);
 
             graphics.FillEllipse(color, rectangle);
+        }
+
+        public bool IsCursorInBall(MouseEventArgs e)
+        {
+            float mx = e.X - fruit.centerX;
+            float my = e.Y - fruit.centerY;
+
+            return mx * mx + my * my <= fruit.radius * fruit.radius && IsMoving();
+        }
+
+        public void HideFruit()
+        {
+            timer.Stop();
+            HideLastFruit();
+        }
+
+        public bool IsMoving()
+        {
+            return timer.Enabled;
         }
     }
 }

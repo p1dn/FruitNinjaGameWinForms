@@ -10,6 +10,7 @@ namespace FruitNinjaGameWinForms
         {
             radius = 55;
             color = Brushes.Orange;
+            point = 5;
         }
     }
 }

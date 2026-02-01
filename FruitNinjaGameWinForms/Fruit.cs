@@ -15,6 +15,8 @@ namespace FruitNinjaGameWinForms
         public int radius { get; protected set; }
         public Brush color { get; protected set; }
 
+        public int point { get; protected set; }
+
         public Fruit(Form form)
         {
             this.form = form;
