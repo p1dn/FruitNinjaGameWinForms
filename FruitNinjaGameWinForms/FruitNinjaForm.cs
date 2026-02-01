@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace FruitNinjaGameWinForms
 {
     public partial class FruitNinjaForm : Form
@@ -19,40 +21,46 @@ namespace FruitNinjaGameWinForms
             }
         }
 
+        private void ShowFruit(Fruit fruit)
+        {
+            fruit.movement.StartMoving();
+            fruits.Add(fruit);
+        }
+
         private void SpawnFruit()
         {
-            switch (rnd.Next(0, 6))
+            switch (rnd.Next(0, 7))
             {
                 case 0:
                     var watermelon = new Watermelon(this);
-                    watermelon.movement.StartMoving();
-                    fruits.Add(watermelon);
+                    ShowFruit(watermelon);
                     break;
                 case 1:
                     var apple = new Apple(this);
-                    apple.movement.StartMoving();
-                    fruits.Add(apple);
+                    ShowFruit(apple);
                     break;
                 case 2:
                     var kiwi = new Kiwi(this);
-                    kiwi.movement.StartMoving();
-                    fruits.Add(kiwi);
+                    ShowFruit(kiwi);
                     break;
                 case 3:
                     var coconut = new Coconut(this);
-                    coconut.movement.StartMoving();
-                    fruits.Add(coconut);
+                    ShowFruit(coconut);
                     break;
                 case 4:
                     var mango = new Mango(this);
-                    mango.movement.StartMoving();
-                    fruits.Add(mango);
+                    ShowFruit(mango);
+                    break;
+                case 5:
+                    var bomb = new Bomb(this);
+                    ShowFruit(bomb);
+                    break;
+                case 6:
+                    var pineapple = new Pineapple(this);
+                    ShowFruit(pineapple);
                     break;
                 default:
-                    var pineapple = new Pineapple(this);
-                    pineapple.movement.StartMoving();
-                    fruits.Add(pineapple);
-                    break;
+                    throw new Exception("Unknown Fruit");
             }
         }
 
@@ -62,6 +70,11 @@ namespace FruitNinjaGameWinForms
             {
                 if (fruit.movement.IsCursorInBall(e))
                 {
+                    if (fruit is Bomb)
+                    {
+                        MessageBox.Show("Вы проиграли");
+                        Close();
+                    }
                     fruit.movement.HideFruit();
                     score += fruit.point;
                     scoreLabel.Text = score.ToString();

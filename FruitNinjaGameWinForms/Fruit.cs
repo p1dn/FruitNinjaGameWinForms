@@ -6,7 +6,7 @@ namespace FruitNinjaGameWinForms
 {
     public class Fruit
     {
-        private Form form;
+        protected Form form;
         public FruitMovement movement { get; set; }
 
         public float centerX { get; set; }
