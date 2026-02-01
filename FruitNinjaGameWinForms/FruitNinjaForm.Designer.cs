@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             scoreLabel = new Label();
+            timer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // scoreLabel
@@ -41,6 +43,12 @@
             scoreLabel.Size = new Size(57, 65);
             scoreLabel.TabIndex = 0;
             scoreLabel.Text = "0";
+            // 
+            // timer
+            // 
+            timer.Enabled = true;
+            timer.Interval = 3000;
+            timer.Tick += timer_Tick;
             // 
             // FruitNinjaForm
             // 
@@ -58,5 +66,6 @@
         #endregion
 
         private Label scoreLabel;
+        private System.Windows.Forms.Timer timer;
     }
 }
