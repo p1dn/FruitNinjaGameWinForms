@@ -59,7 +59,7 @@
             Controls.Add(scoreLabel);
             Name = "FruitNinjaForm";
             Text = "FruitNinja";
-            MouseDown += FruitNinjaForm_MouseDown;
+            MouseMove += FruitNinjaForm_MouseMove;
             ResumeLayout(false);
             PerformLayout();
         }

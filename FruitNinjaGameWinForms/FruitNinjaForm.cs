@@ -68,7 +68,7 @@ namespace FruitNinjaGameWinForms
             }
         }
 
-        private void FruitNinjaForm_MouseDown(object sender, MouseEventArgs e)
+        private void FruitNinjaForm_MouseMove(object sender, MouseEventArgs e)
         {
             foreach (var fruit in fruits)
             {
