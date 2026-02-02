@@ -29,7 +29,7 @@ namespace FruitNinjaGameWinForms
 
         private void SpawnFruit()
         {
-            switch (rnd.Next(0, 7))
+            switch (rnd.Next(0, 8))
             {
                 case 0:
                     var watermelon = new Watermelon(this);
@@ -59,6 +59,10 @@ namespace FruitNinjaGameWinForms
                     var pineapple = new Pineapple(this);
                     ShowFruit(pineapple);
                     break;
+                case 7:
+                    var banana = new Banana(this);
+                    ShowFruit(banana);
+                    break;
                 default:
                     throw new Exception("Unknown Fruit");
             }
@@ -75,6 +79,14 @@ namespace FruitNinjaGameWinForms
                         MessageBox.Show("Вы проиграли");
                         Close();
                     }
+                    else if (fruit is Banana)
+                    {
+                        foreach (var f in fruits)
+                        {
+                            f.movement.timer.Interval = 20;
+                        }
+                    }
+
                     fruit.movement.HideFruit();
                     score += fruit.point;
                     scoreLabel.Text = score.ToString();

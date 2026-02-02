@@ -9,7 +9,7 @@ namespace FruitNinjaGameWinForms
         private Fruit fruit;
         private Form form;
 
-        private System.Windows.Forms.Timer timer;
+        public System.Windows.Forms.Timer timer;
 
         private float xFall;
         private float yFall;
